@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Taiji.Host.DataContract;
+using Taiji.Host.Services;
 
 namespace Taiji.Host
 {
@@ -28,6 +31,11 @@ namespace Taiji.Host
             {
                 configuration.RootPath = "ClientApp/build";
             });
+            var pt = new PluginTable();
+            services.AddSingleton<PluginTable>(pt);
+            services.AddSingleton<PluginServiceCollection>();
+            var plugin = new PluginCollector(pt);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,13 +65,42 @@ namespace Taiji.Host
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
+            app.MapWhen(ctx =>
+            {
+                var pt = ctx.RequestServices.GetService<PluginTable>();
+                var moduleName = ctx.Request.Path.Value.Split('/')[1];
+                return pt.ContainsKey(moduleName);
+            }, appbuilder =>
+            {
+                appbuilder.Use(next => async ctx =>
+                {
+                    var pluginServiceCollectionDic = appbuilder.ApplicationServices.GetService<PluginServiceCollection>();
+                    var pluginApp = appbuilder.ApplicationServices.GetService<PluginTable>();
+                    var pluginName = ctx.Request.Path.Value.Split('/')[1];
+                    var plugin = pluginApp[pluginName];
+
+                    if (!pluginServiceCollectionDic.ContainsKey(pluginName))
+                    {
+                        var _pluginServiceCollection = new ServiceCollection();
+                        _pluginServiceCollection.AddSingleton<ILoggerFactory>(new LoggerFactory());
+                        pluginServiceCollectionDic.Add(pluginName, _pluginServiceCollection);
+                     
+                    }
+                    var pluginServiceCollection = pluginServiceCollectionDic[pluginName];
+
+                    plugin.Bootloader.RegistService(pluginServiceCollection);
+                    var _app = new ApplicationBuilder(pluginServiceCollection.BuildServiceProvider());
+                    await plugin.Bootloader.RegistAppContext(_app).Build().Invoke(ctx);
+                });
+            });
+
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:8000");
                 }
             });
         }

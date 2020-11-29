@@ -5,13 +5,25 @@ VisualStudioVersion = 16.0.30427.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceCore", "ServiceCore", "{DA7B6158-D275-4816-BCF8-D4FCC761CE6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.IdentityServer", "ServiceCore\Taiji.IdentityServer\Taiji.IdentityServer.csproj", "{2596A58B-9FB8-4FB5-848E-A5DCE6F8C3C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taiji.IdentityServer", "ServiceCore\Taiji.IdentityServer\Taiji.IdentityServer.csproj", "{2596A58B-9FB8-4FB5-848E-A5DCE6F8C3C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.DataServer", "ServiceCore\Taiji.DataServer\Taiji.DataServer.csproj", "{5080F3A5-AF48-468B-8B70-07F98B547178}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taiji.DataServer", "ServiceCore\Taiji.DataServer\Taiji.DataServer.csproj", "{5080F3A5-AF48-468B-8B70-07F98B547178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.ContainerServer", "ServiceCore\Taiji.ContainerServer\Taiji.ContainerServer.csproj", "{B34AA82A-06B3-45C9-B19A-6644DB62019D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taiji.ContainerServer", "ServiceCore\Taiji.ContainerServer\Taiji.ContainerServer.csproj", "{B34AA82A-06B3-45C9-B19A-6644DB62019D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.Host", "Taiji.Host\Taiji.Host.csproj", "{3F9D0E86-346A-4AD8-BA44-360F096F8B43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taiji.Host", "Taiji.Host\Taiji.Host.csproj", "{3F9D0E86-346A-4AD8-BA44-360F096F8B43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.FileServer", "ServiceCore\Taiji.FileServer\Taiji.FileServer.csproj", "{514AF25C-9A6E-4FB7-870C-0BF8707E490D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.ResourceConfigServer", "ServiceCore\Taiji.ResourceConfigServer\Taiji.ResourceConfigServer.csproj", "{74781F76-4E92-4188-A2F8-6AF6AFAC1C33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.LogServer", "ServiceCore\Taiji.LogServer\Taiji.LogServer.csproj", "{82917618-0048-4D98-9B63-ADB801852C65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.TaskScheduleServer", "ServiceCore\Taiji.TaskScheduleServer\Taiji.TaskScheduleServer.csproj", "{D230C3F5-5DA9-4DFB-8189-F0F2888EEFD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{BD76E3E2-7F55-49CE-82EE-9E9317E1B556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taiji.Framework", "Framework\Taiji.Framework\Taiji.Framework.csproj", "{FB45B9B1-E431-4F25-9147-B97B537C5665}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +47,26 @@ Global
 		{3F9D0E86-346A-4AD8-BA44-360F096F8B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F9D0E86-346A-4AD8-BA44-360F096F8B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F9D0E86-346A-4AD8-BA44-360F096F8B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{514AF25C-9A6E-4FB7-870C-0BF8707E490D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{514AF25C-9A6E-4FB7-870C-0BF8707E490D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{514AF25C-9A6E-4FB7-870C-0BF8707E490D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{514AF25C-9A6E-4FB7-870C-0BF8707E490D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74781F76-4E92-4188-A2F8-6AF6AFAC1C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74781F76-4E92-4188-A2F8-6AF6AFAC1C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74781F76-4E92-4188-A2F8-6AF6AFAC1C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74781F76-4E92-4188-A2F8-6AF6AFAC1C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82917618-0048-4D98-9B63-ADB801852C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82917618-0048-4D98-9B63-ADB801852C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82917618-0048-4D98-9B63-ADB801852C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82917618-0048-4D98-9B63-ADB801852C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D230C3F5-5DA9-4DFB-8189-F0F2888EEFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D230C3F5-5DA9-4DFB-8189-F0F2888EEFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D230C3F5-5DA9-4DFB-8189-F0F2888EEFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D230C3F5-5DA9-4DFB-8189-F0F2888EEFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB45B9B1-E431-4F25-9147-B97B537C5665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB45B9B1-E431-4F25-9147-B97B537C5665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB45B9B1-E431-4F25-9147-B97B537C5665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB45B9B1-E431-4F25-9147-B97B537C5665}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +75,11 @@ Global
 		{2596A58B-9FB8-4FB5-848E-A5DCE6F8C3C9} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
 		{5080F3A5-AF48-468B-8B70-07F98B547178} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
 		{B34AA82A-06B3-45C9-B19A-6644DB62019D} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
+		{514AF25C-9A6E-4FB7-870C-0BF8707E490D} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
+		{74781F76-4E92-4188-A2F8-6AF6AFAC1C33} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
+		{82917618-0048-4D98-9B63-ADB801852C65} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
+		{D230C3F5-5DA9-4DFB-8189-F0F2888EEFD7} = {DA7B6158-D275-4816-BCF8-D4FCC761CE6C}
+		{FB45B9B1-E431-4F25-9147-B97B537C5665} = {BD76E3E2-7F55-49CE-82EE-9E9317E1B556}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8F60318-CB3B-46C1-91D2-8D2B70B344B0}
